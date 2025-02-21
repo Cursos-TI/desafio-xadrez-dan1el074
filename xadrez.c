@@ -34,6 +34,20 @@ void moverRainha(int numeroDeCasas) {
     } while(numeroDeCasas > 0);
 }
 
+void moverCavalo() {
+    // Nível Aventureiro - Movimentação do Cavalo
+    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
+
+    int movimentoEmL = 1;
+
+    while(movimentoEmL--) {
+        for(int i=0; i<2; i++) {
+            printf("Baixo\n");
+        }
+        printf("Esquerda\n");
+    }
+}
+
 int main() {
     int peca;
     int numeroDeCasas;
@@ -44,15 +58,18 @@ int main() {
         printf("\n1- Torre (para a direita) \n");
         printf("2- Bispo (diagonal para cima e à direita) \n");
         printf("3- Rainha (para a esquerda) \n");
+        printf("4- Cavalo (para a baixo e esquerda) \n");
         printf("\nEscolha qual peça deseja movimentar: ");
 
         scanf("%d", &peca);
-    } while(peca > 3 || peca < 1);
+    } while(peca > 4 || peca < 1);
 
-    do{
-        printf("Escolha o número de casas: ");
-        scanf("%d", &numeroDeCasas);
-    } while(numeroDeCasas > 8 || numeroDeCasas < 1);
+    if(peca != 4) {
+        do{
+            printf("Escolha o número de casas: ");
+            scanf("%d", &numeroDeCasas);
+        } while(numeroDeCasas > 8 || numeroDeCasas < 1);
+    }
     
     printf("\n");
 
@@ -65,6 +82,9 @@ int main() {
             break;
         case 3:
             moverRainha(numeroDeCasas);
+            break;
+        case 4:
+            moverCavalo();
             break;
     }
 
