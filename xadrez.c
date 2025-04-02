@@ -6,45 +6,48 @@
 
 void moverTorre(int numeroDeCasas) {
     // Implementação de Movimentação da Torre
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Torre para a direita.
-
-    for(int i=0; i<numeroDeCasas; i++) {
+    if(numeroDeCasas > 0) {
         printf("Direita\n");
+        moverTorre(--numeroDeCasas);
     }
 }
 
 void moverBispo(int numeroDeCasas) {
     // Implementação de Movimentação do Bispo
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação do Bispo em diagonal.
+    if(numeroDeCasas >  0) {
+        int movimentoEmL = 1;
 
-    while(numeroDeCasas > 0) {
-        printf("Cima\n");
-        printf("Direita\n");
-        numeroDeCasas--;
+        while(movimentoEmL--) {
+            printf("Cima\n");
+            
+            for(int i=0; i<1; i++) {
+                printf("Direita\n");
+            }
+        }
+
+        moverBispo(--numeroDeCasas);
     }
 }
 
 void moverRainha(int numeroDeCasas) {
     // Implementação de Movimentação da Rainha
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Rainha para a esquerda.
-
-    do {
+    if(numeroDeCasas > 0) {
         printf("Esquerda\n");
-        numeroDeCasas--;
-    } while(numeroDeCasas > 0);
+        moverRainha(--numeroDeCasas);
+    }
 }
 
 void moverCavalo() {
     // Nível Aventureiro - Movimentação do Cavalo
     // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
 
-    int movimentoEmL = 1;
+    int movimentoHorizontal = 1;
 
-    while(movimentoEmL--) {
-        for(int i=0; i<2; i++) {
-            printf("Baixo\n");
+    while(movimentoHorizontal--) {
+        for(int i=0, j=4; i<j; i++, j--) {
+            printf("Cima\n");
         }
-        printf("Esquerda\n");
+        printf("Direita\n");
     }
 }
 
